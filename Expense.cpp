@@ -1,36 +1,89 @@
-#inlcude<iostream>
+#include<iostream>
 #include<string>
 using namespace std;
-class expense{
-
+class input{
     protected:
-            double income;
-            double expense;
-            string i_date ,e_date;
-            string isource , esource;
+    char ch;
+
+   
     public:
-            void getincome(){
-                cout<<"Enter source of income:";
-                cin>>isource;
-                cout<<"Enter income:";
-                cin>>income;
-                cout<<"Enter date of income:";
-                cin>>i_date;
+            void getincome(string source[],double inarr[],string idate[]){
+                double sum=0;
+                int i=0;
+                cout<<"Want to enter details (y / n) :";
+                cin>>ch;
+                while(ch=='y'){
+                    cout<<"Enter source of income:";
+                    cin>>source[i];
+                    cout<<"Enter income:";
+                    cin>>inarr[i];
+                    cout<<"Enter date of income:";
+                    cin>>idate[i];
+                    sum=sum+inarr[i];
+                    i++;
+                    cout<<"Final income : "<<sum<<endl;
+                    cout<<"Want to enter more details (y / n) :";
+                    cin>>ch;
+                }
+                    
+                }
+            void getexpense(string source[],double inarr[],string idate[]){
+                double sum=0;
+                int i=0;
+                cout<<"Want to enter details (y / n) :";
+                cin>>ch;
+                while(ch=='y'){
+                    cout<<"Enter source of expense:";
+                    cin>>source[i];
+                    cout<<"Enter amount spent:";
+                    cin>>inarr[i];
+                    cout<<"Enter date of expenditure:";
+                    cin>>idate[i];
+                    sum=sum+inarr[i];
+                    i++;
+                    cout<<"Final expenditure : "<<sum<<endl;
+                    cout<<"Want to enter more details (y / n) :";
+                    cin>>ch;
+                    
+                }
             }
 
-            void getexpense(){
-                cout<<"Enter source of expense:";
-                cin>>esource;
-                cout<<"Enter expense amount:";
-                cin>>expense;
-                cout<<"Enter date of expense:";
-                cin>>e_date;
-            }
+        };
+
 
             
 
-}
+
 
 int main(){
+    int cho;
+    string isource[20];
+    double inarr[20];
+    string idate[20];
+    string esource[20];
+    double exarr[20];
+    string edate[20];
+    input obj;
+    while(true){
+        cout<<"EXPENSE TRACKER"<<endl;
+        cout<<"1.Income\n2.Expenditure\n3.View income\n4.View expense\n5.Exit\nEnter the choice";
+        cin>>cho;
+        switch(cho){
+            case 1:
+                obj.getincome(isource,inarr,idate);
+                break;
+            case 2:
+                obj.getexpense(esource,exarr,edate);
+                break;
+            case 5:
+                cout<<"Closing the application";
+                return false;
+            default:
+                cout<<"Invalid";
+                break;
+    }
+    
 
+}
+ return 0;
 }
