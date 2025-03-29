@@ -5,14 +5,13 @@ class input{
     protected:
     char ch;
 
-   
     public:
             void getincome(string source[],double inarr[],string idate[]){
                 double sum=0;
                 int i=0;
-                cout<<"Want to enter details (y / n) :";
+                cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while(ch=='y'){
+                while(ch=='y'||ch=='Y'){
                     cout<<"Enter source of income:";
                     cin>>source[i];
                     cout<<"Enter income:";
@@ -22,7 +21,7 @@ class input{
                     sum=sum+inarr[i];
                     i++;
                     cout<<"Final income : "<<sum<<endl;
-                    cout<<"Want to enter more details (y / n) :";
+                    cout<<"Want to enter more details (Y/N) :";
                     cin>>ch;
                 }
                     
@@ -30,9 +29,9 @@ class input{
             void getexpense(string source[],double inarr[],string idate[]){
                 double sum=0;
                 int i=0;
-                cout<<"Want to enter details (y / n) :";
+                cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while(ch=='y'){
+                while(ch=='y'||ch == 'Y'){
                     cout<<"Enter source of expense:";
                     cin>>source[i];
                     cout<<"Enter amount spent:";
@@ -42,7 +41,7 @@ class input{
                     sum=sum+inarr[i];
                     i++;
                     cout<<"Final expenditure : "<<sum<<endl;
-                    cout<<"Want to enter more details (y / n) :";
+                    cout<<"Want to enter more details (Y/N) :";
                     cin>>ch;
                     
                 }
@@ -65,8 +64,8 @@ int main(){
     string edate[20];
     input obj;
     while(true){
-        cout<<"EXPENSE TRACKER"<<endl;
-        cout<<"1.Income\n2.Expenditure\n3.View income\n4.View expense\n5.Exit\nEnter the choice";
+        cout<<"\n-----EXPENSE TRACKER-----\n";
+        cout<<"---Menu---\n1.Income\n2.Expenditure\n3.View income\n4.View expense\n5.Exit\nEnter the choice:";
         cin>>cho;
         switch(cho){
             case 1:
@@ -77,13 +76,11 @@ int main(){
                 break;
             case 5:
                 cout<<"Closing the application";
-                return false;
+                return 0;
             default:
-                cout<<"Invalid";
+                cout<<"Invalid Input. Enter choice from the menu";
                 break;
+         }
     }
-    
-
-}
- return 0;
+    return 0;
 }
