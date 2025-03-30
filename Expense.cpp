@@ -11,7 +11,7 @@ class input{
                 int i=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while(ch=='y'||ch=='Y'){              //changes made 
+                while((ch=='y'||ch=='Y') && i<30){              //changes made 
                     cout<<"Enter source of income:";
                     cin>>source[i];
                     cout<<"Enter income:";
@@ -31,7 +31,7 @@ class input{
                 int i=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while(ch=='y'||ch == 'Y'){                //changes made 
+                while((ch=='y'||ch == 'Y') && i<30){                //changes made 
                     cout<<"Enter source of expense:";
                     cin>>source[i];
                     cout<<"Enter amount spent:";
@@ -56,12 +56,12 @@ class input{
 
 int main(){
     int cho;
-    string isource[20];
-    double inarr[20];
-    string idate[20];
-    string esource[20];
-    double exarr[20];
-    string edate[20];
+    string isource[30];
+    double inarr[30];
+    string idate[30];
+    string esource[30];
+    double exarr[30];
+    string edate[30];
     input obj;
     cout<<"\n-----EXPENSE TRACKER-----\n"; //changes made
     while(true){
