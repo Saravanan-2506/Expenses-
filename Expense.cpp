@@ -11,7 +11,7 @@ class input{
                 int i=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while(ch=='y'||ch=='Y'){
+                while(ch=='y'||ch=='Y'){              //changes made 
                     cout<<"Enter source of income:";
                     cin>>source[i];
                     cout<<"Enter income:";
@@ -31,7 +31,7 @@ class input{
                 int i=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while(ch=='y'||ch == 'Y'){
+                while(ch=='y'||ch == 'Y'){                //changes made 
                     cout<<"Enter source of expense:";
                     cin>>source[i];
                     cout<<"Enter amount spent:";
@@ -63,9 +63,9 @@ int main(){
     double exarr[20];
     string edate[20];
     input obj;
+    cout<<"\n-----EXPENSE TRACKER-----\n"; //changes made
     while(true){
-        cout<<"\n-----EXPENSE TRACKER-----\n";
-        cout<<"---Menu---\n1.Income\n2.Expenditure\n3.View income\n4.View expense\n5.Exit\nEnter the choice:";
+        cout<<"\n---Menu---\n1.Income\n2.Expenditure\n3.View income\n4.View expense\n5.Exit\nEnter the choice:"; //Changes made
         cin>>cho;
         switch(cho){
             case 1:
@@ -73,6 +73,12 @@ int main(){
                 break;
             case 2:
                 obj.getexpense(esource,exarr,edate);
+                break;
+            case 3:
+
+                break;
+            case 4:
+
                 break;
             case 5:
                 cout<<"Closing the application";
