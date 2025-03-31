@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<iomanip>
 using namespace std;
 class input{
     protected:
@@ -18,7 +19,7 @@ class input{
                 int i=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while((ch=='y'||ch=='Y') && i<30){              //changes made 
+                while((ch=='y'||ch=='Y') && i<30){               
                     cout<<"Enter source of income:";
                     cin>>isource[i];
                     cout<<"Enter income:";
@@ -38,7 +39,7 @@ class input{
                 int j=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while((ch=='y'||ch == 'Y') && j<30){                //changes made 
+                while((ch=='y'||ch == 'Y') && j<30){                 
                     cout<<"Enter source of expense:";
                     cin>>esource[j];
                     cout<<"Enter amount spent:";
@@ -60,18 +61,20 @@ class view: public input{
     public:
         void viewincome(){
             cout<<"INCOME DETAILS\n";
-            cout<<"DATE\tSOURCE\tINCOME"<<endl;
-            for(int k=0;k<income;k++)
+            cout << left << setw(12) << "DATE" << setw(15) << "SOURCE" << setw(10) << "INCOME" << endl;
+            for(int k=0; k<income; k++)
             {
-                cout<<idate[k]<<"\t"<<isource[k]<<"\t"<<inarr[k]<<endl;
+                cout << left << setw(12) << idate[k] << setw(15) << isource[k] << setw(10) << inarr[k] << endl;
             }
         }
         void viewexpense(){
             cout<<"EXPENSE DETAILS\n";
-            cout<<"DATE\tEXPENDITURE\tAMOUNT"<<endl;
-            for(int k=0;k<expense;k++)
+            
+            cout << left << setw(12) << "DATE" << setw(15) << "SOURCE" << setw(10) << "EXPENDITURE" << endl;
+            for(int k=0; k<expense; k++)
             {
-                cout<<edate[k]<<"\t"<<esource[k]<<"\t"<<exarr[k]<<endl;
+                
+                cout << left << setw(12) << edate[k] << setw(15) << esource[k] << setw(10) << exarr[k] << endl;
             }
         }
 };
@@ -83,7 +86,7 @@ class view: public input{
 int main(){
     int cho;
     view obj1;
-    cout<<"\n-----EXPENSE TRACKER-----\n"; //changes made
+    cout<<"\n-----EXPENSE TRACKER-----\n"; 
     while(true){
         cout<<"\n---Menu---\n1.Income\n2.Expenditure\n3.View income\n4.View expense\n5.Exit\nEnter the choice:"; //Changes made
         cin>>cho;
