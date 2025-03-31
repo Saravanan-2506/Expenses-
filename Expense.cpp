@@ -4,6 +4,12 @@ using namespace std;
 class input{
     protected:
     char ch;
+    string isource[30];
+    double inarr[30];
+    string idate[30];
+    string esource[30];
+    double exarr[30];
+    string edate[30];
 
     public:
             void getincome(string source[],double inarr[],string idate[]){
@@ -48,7 +54,17 @@ class input{
             }
 
         };
-
+class view: public input{
+    public:
+        void viewincome(){
+            cout<<"INCOME DETAILS\n";
+            cout<<"DATE\tSOURCE\tINCOME"<<endl;
+            for(int i=0;i<30;i++)
+            {
+                cout<<idate[i]<<"\t"<<isource[i]<<"\t"<<inarr[i]<<endl;
+            }
+        }
+};
 
             
 
@@ -63,6 +79,7 @@ int main(){
     double exarr[30];
     string edate[30];
     input obj;
+    view obj1;
     cout<<"\n-----EXPENSE TRACKER-----\n"; //changes made
     while(true){
         cout<<"\n---Menu---\n1.Income\n2.Expenditure\n3.View income\n4.View expense\n5.Exit\nEnter the choice:"; //Changes made
@@ -75,7 +92,7 @@ int main(){
                 obj.getexpense(esource,exarr,edate);
                 break;
             case 3:
-
+            obj1.viewincome();
                 break;
             case 4:
 
