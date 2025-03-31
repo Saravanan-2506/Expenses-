@@ -10,16 +10,17 @@ class input{
     string esource[30];
     double exarr[30];
     string edate[30];
+    int income=0,expense=0;
 
     public:
-            void getincome(string source[],double inarr[],string idate[]){
+            void getincome(){
                 double sum=0;
                 int i=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
                 while((ch=='y'||ch=='Y') && i<30){              //changes made 
                     cout<<"Enter source of income:";
-                    cin>>source[i];
+                    cin>>isource[i];
                     cout<<"Enter income:";
                     cin>>inarr[i];
                     cout<<"Enter date of income:";
@@ -30,22 +31,22 @@ class input{
                     cout<<"Want to enter more details (Y/N) :";
                     cin>>ch;
                 }
-                    
+                income = i; 
                 }
-            void getexpense(string source[],double inarr[],string idate[]){
+            void getexpense(){
                 double sum=0;
-                int i=0;
+                int j=0;
                 cout<<"Want to enter details (Y/N) :";
                 cin>>ch;
-                while((ch=='y'||ch == 'Y') && i<30){                //changes made 
+                while((ch=='y'||ch == 'Y') && j<30){                //changes made 
                     cout<<"Enter source of expense:";
-                    cin>>source[i];
+                    cin>>esource[j];
                     cout<<"Enter amount spent:";
-                    cin>>inarr[i];
+                    cin>>exarr[j];
                     cout<<"Enter date of expenditure:";
-                    cin>>idate[i];
-                    sum=sum+inarr[i];
-                    i++;
+                    cin>>edate[j];
+                    sum=sum+inarr[j];
+                    j++;
                     cout<<"Final expenditure : "<<sum<<endl;
                     cout<<"Want to enter more details (Y/N) :";
                     cin>>ch;
@@ -59,9 +60,9 @@ class view: public input{
         void viewincome(){
             cout<<"INCOME DETAILS\n";
             cout<<"DATE\tSOURCE\tINCOME"<<endl;
-            for(int i=0;i<30;i++)
+            for(int k=0;k<income;k++)
             {
-                cout<<idate[i]<<"\t"<<isource[i]<<"\t"<<inarr[i]<<endl;
+                cout<<idate[k]<<"\t"<<isource[k]<<"\t"<<inarr[k]<<endl;
             }
         }
 };
@@ -72,13 +73,6 @@ class view: public input{
 
 int main(){
     int cho;
-    string isource[30];
-    double inarr[30];
-    string idate[30];
-    string esource[30];
-    double exarr[30];
-    string edate[30];
-    input obj;
     view obj1;
     cout<<"\n-----EXPENSE TRACKER-----\n"; //changes made
     while(true){
@@ -86,13 +80,13 @@ int main(){
         cin>>cho;
         switch(cho){
             case 1:
-                obj.getincome(isource,inarr,idate);
+                obj1.getincome();
                 break;
             case 2:
-                obj.getexpense(esource,exarr,edate);
+                obj1.getexpense();
                 break;
             case 3:
-            obj1.viewincome();
+                obj1.viewincome();
                 break;
             case 4:
 
