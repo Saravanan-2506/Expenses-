@@ -45,13 +45,14 @@ class input{
                     cin>>exarr[j];
                     cout<<"Enter date of expenditure:";
                     cin>>edate[j];
-                    sum=sum+inarr[j];
+                    sum=sum+exarr[j];
                     j++;
                     cout<<"Final expenditure : "<<sum<<endl;
                     cout<<"Want to enter more details (Y/N) :";
                     cin>>ch;
                     
                 }
+                expense = j;
             }
 
         };
@@ -63,6 +64,14 @@ class view: public input{
             for(int k=0;k<income;k++)
             {
                 cout<<idate[k]<<"\t"<<isource[k]<<"\t"<<inarr[k]<<endl;
+            }
+        }
+        void viewexpense(){
+            cout<<"EXPENSE DETAILS\n";
+            cout<<"DATE\tEXPENDITURE\tAMOUNT"<<endl;
+            for(int k=0;k<expense;k++)
+            {
+                cout<<edate[k]<<"\t"<<esource[k]<<"\t"<<exarr[k]<<endl;
             }
         }
 };
@@ -89,7 +98,7 @@ int main(){
                 obj1.viewincome();
                 break;
             case 4:
-
+                obj1.viewexpense();
                 break;
             case 5:
                 cout<<"Closing the application";
